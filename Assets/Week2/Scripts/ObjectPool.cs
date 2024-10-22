@@ -8,6 +8,7 @@ public enum PoolTag
     Arrow
 }
 
+//팀프로젝트에서 string했을 때의 문제가 생겨서 enum으로 해보았습니다.
 public class ObjectPool : MonoBehaviour
 {
     public class Pool

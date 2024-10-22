@@ -244,6 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782eb615d6511dd4fa0e25f74a6787e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Quests:
+  - {fileID: 11400000, guid: 4cc11d2e2ab1fb74fb8c48982ea88efc, type: 2}
+  - {fileID: 11400000, guid: 4734f8bb0bd7d0c479f79747726c6c4c, type: 2}
 --- !u!4 &1774027645
 Transform:
   m_ObjectHideFlags: 0
