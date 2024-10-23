@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cd14dd4801dd7947bc22f091f43430f, type: 3}
-  m_Name: DefaultMonsterQuestDataSO 1
+  m_Name: DefaultMonsterQuestDataSO 2
   m_EditorClassIdentifier: 
-  QuestName: "\uC2A4\uD30C\uB974\uD0C0\uC5D0 \uC785\uC131\uD588\uB2E4."
+  QuestName: "\uC2A4\uD30C\uB974\uD0C0\uC5D0 \uC785\uC131\uD588\uB098?"
   QuestRequiredLevel: 10
   QuestNPC: 0
   QuestPrerequisites: 
-  encountNPC: 0
+  encountNPC: 1

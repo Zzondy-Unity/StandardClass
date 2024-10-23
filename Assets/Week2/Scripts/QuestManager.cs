@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -83,7 +84,8 @@ public class QuestManager : MonoBehaviour
             }
             else if (encounterQuest != null)
             {
-                Debug.Log($"{encounterQuest.encountNPC}와(과) 대화하기");
+                string NPCName = Enum.GetName(typeof(NPCs), (encounterQuest.encountNPC));
+                Debug.Log($"{NPCName}와(과) 대화하기");
             }
             else
             {

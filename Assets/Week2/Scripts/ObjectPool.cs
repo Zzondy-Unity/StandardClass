@@ -11,6 +11,7 @@ public enum PoolTag
 //팀프로젝트에서 string했을 때의 문제가 생겨서 enum으로 해보았습니다.
 public class ObjectPool : MonoBehaviour
 {
+    [System.Serializable]
     public class Pool
     {
         public GameObject Prefab;
@@ -31,7 +32,7 @@ public class ObjectPool : MonoBehaviour
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject go = Instantiate(pool.Prefab, this.transform);
-
+                go.SetActive(false);
                 objectPool.Add(go);
             }
             PoolDictionary.Add(pool.tag, objectPool);
