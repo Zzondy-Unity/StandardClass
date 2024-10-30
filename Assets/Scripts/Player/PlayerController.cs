@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public Action inventory;
 
     private Rigidbody _rigidbody;
+    private Skill skill;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;   //커서 none, lock, confine종류가있다.
         SettingCanvas.SetActive(false);
+        skill = CharacterManager.Instance.Player.skill;
     }
 
     private void FixedUpdate()
@@ -147,4 +149,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnSkill(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started)
+        {
+            //스킬을 사용합니다.
+            skill.UseQSkill(skill.FireBall.UseMana);
+        }
+    }
 }

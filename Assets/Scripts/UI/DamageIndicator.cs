@@ -23,7 +23,7 @@ public class DamageIndicator : MonoBehaviour
         }
 
         image.enabled = true;
-        image.color = new Color(1f, 100f / 266f, 100f / 255f);
+        image.color = new Color(1f, 100f / 255f, 100f / 255f);
         coroutine = StartCoroutine(FadeAway());
     }
 
