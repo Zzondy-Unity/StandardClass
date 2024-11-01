@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool canLook = true;
 
     [Header("Settings")]
-    [SerializeField] GameObject SettingCanvas;
+    public GameObject SettingCanvas;
 
     public Action inventory;
 
@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;   //커서 none, lock, confine종류가있다.
-        SettingCanvas.SetActive(false);
         skill = CharacterManager.Instance.Player.skill;
     }
 
@@ -131,22 +130,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ToggleCursor()
+    public void ToggleCursor()
     {
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
-    }
-
-    public void OnSettings(InputAction.CallbackContext context)
-    {
-        if(context.phase == InputActionPhase.Started)
-        {
-            SettingCanvas.SetActive(!SettingCanvas.activeSelf);
-            Cursor.lockState = SettingCanvas.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
-            ToggleCursor();
-            Time.timeScale = SettingCanvas.activeSelf ? 0f : 1f;
-        }
     }
 
     public void OnSkill(InputAction.CallbackContext context)
@@ -157,4 +145,18 @@ public class PlayerController : MonoBehaviour
             skill.UseQSkill(skill.FireBall.UseMana);
         }
     }
+
+    public void OnSettings(InputAction.CallbackContext context)
+    {
+        GameObject setting = UIManager.Instance.settings.gameObject;
+        if (context.phase == InputActionPhase.Started)
+        {
+            setting.SetActive(!gameObject.activeSelf);
+            Cursor.lockState = setting.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
+            ToggleCursor();
+            Time.timeScale = setting.activeSelf ? 0f : 1f;
+        }
+
+    }
+
 }

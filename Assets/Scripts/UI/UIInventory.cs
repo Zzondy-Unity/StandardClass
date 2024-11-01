@@ -29,6 +29,11 @@ public class UIInventory : MonoBehaviour
 
     private int curEquipIndex;
 
+    private void Awake()
+    {
+        UIManager.Instance.inventory = this;
+    }
+
     private void Start()
     {
         controller = CharacterManager.Instance.Player.controller;

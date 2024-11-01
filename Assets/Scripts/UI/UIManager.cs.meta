@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 555ce9b9333e7c1498dcbe562893fa73
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _UI: {fileID: 4835625570437994846, guid: 27b0e3e2a1e912148b09ce64b658ae4d, type: 3}
+  - Setting: {fileID: 1314595966992648064, guid: fc1256153ef094f469f70183141e0d20, type: 3}
+  - Inventory: {fileID: 3062027745900094504, guid: 51bad49054574d449a17952eb99ff947, type: 3}
+  - Condition: {fileID: 7037894928254515269, guid: 8a0ccfb7952187944875f74ece57ac50, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
