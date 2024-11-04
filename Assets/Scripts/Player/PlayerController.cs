@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         if(context.phase == InputActionPhase.Started)
         {
             //스킬을 사용합니다.
-            skill.UseQSkill(skill.FireBall.UseMana);
+            skill.UseQSkill();
         }
     }
 

@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
             if (instance == this)
             Destroy(gameObject);
         }
-        UISetting();
+        //UISetting();
     }
 
     private void UISetting()

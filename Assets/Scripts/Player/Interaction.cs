@@ -20,7 +20,6 @@ public class Interaction : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        promptText = UIManager.Instance.uiCondition.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Update()
