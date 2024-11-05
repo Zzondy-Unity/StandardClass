@@ -29,3 +29,50 @@
         </ul>
     </div>
 </details>
+
+<details>
+  <summary>## Q2 요구사항</summary>
+    <div markdown="1">
+      <ul>
+<li>1. AI 네비게이션 시스템에서 가장 핵심이 되는 개념에 대해 복습해보세요.</li>
+  <li>1. NaviMeshAgent : NaviMesh시스템을 이용해 움직이는 오브젝트.</li>
+     <li>- Bake된 Area를 가중치 혹은 장애물을 계산하여 이동한다.</li>
+     <li>-  agent타입을 추가하는것으로 뚱뚱한놈, 휴머노이드 등등 타입별 베이크 가능.</li>
+  <li>2. Components</li>
+     <li>- NavMeshSurface의 Volume에서 해당 크기만큼의 지형을 동적으로 Bake할 수 있음.</li>
+     <li>- Off Mesh Link : Start, End Transform을 지정해두면 포탈처럼 빠르게 그 지점을 이동 할 수 있음.</li>
+     <li>- Obstacle : 장애물 설치</li>
+     <li>- NavMeshModifier : ignore = 이부분은 베이크하지 말아라 / Override Area = 이부분은 해당 Area입니다</li>
+<li>2.NPC 기능의 구조와 핵심 로직을 분석해보세요.</li>
+  <li>1. State패턴을 활용</li>
+        <li>- SetState함수를 이용하여 상태를 변경하는것으로 행동로직을 변경</li>
+        <li>```C#</li>
+              <li>public void SetState(AIState state)</li>
+    <li>{</li>
+        <li>aiState = state;</li>
+<li></li>
+        <li>switch (aiState)</li>
+        <li>{</li>
+           <li> case AIState.Idle:</li>
+                <li>agent.speed = walkSpeed;</li>
+             <li>   agent.isStopped = true;</li>
+            <li>    break;</li>
+<li></li>
+         <li>   case AIState.Wandering:</li>
+           <li>     agent.speed = walkSpeed;</li>
+           <li>     agent.isStopped = false;</li>
+           <li>     break;</li>
+<li></li>
+          <li>  case AIState.Attacking:</li>
+         <li>       agent.speed = runSpeed;</li>
+           <li>     agent.isStopped = false;</li>
+            <li>    break;</li>
+       <li> }</li>
+<li></li>
+      <li>  animator.speed = agent.speed / walkSpeed;</li>
+ <li>   }</li>
+   <li> ```</li>
+  <li>- 각 상태에 따라 어떤 함수가 Update문을 돌지 결정</li>
+        </ul>
+    </div>
+</details>
