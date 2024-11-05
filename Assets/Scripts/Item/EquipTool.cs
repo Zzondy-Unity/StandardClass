@@ -36,7 +36,7 @@ public class EquipTool : Equip
             if (CharacterManager.Instance.Player.condition.UseStamina(useStamina))
             {
                 attacking = true;
-                if(doseMagic && CharacterManager.Instance.Player.condition.UseMana(useMana))
+                if(doseMagic)
                 {
                     CharacterManager.Instance.Player.skill.UseQSkill();
                 }

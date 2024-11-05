@@ -148,13 +148,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnSettings(InputAction.CallbackContext context)
     {
-        GameObject setting = UIManager.Instance.settings.gameObject;
         if (context.phase == InputActionPhase.Started)
         {
-            setting.SetActive(!gameObject.activeSelf);
-            Cursor.lockState = setting.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
+            SettingCanvas.SetActive(!SettingCanvas.activeSelf);
+            Cursor.lockState = SettingCanvas.activeSelf ? CursorLockMode.Locked : CursorLockMode.None;
             ToggleCursor();
-            Time.timeScale = setting.activeSelf ? 0f : 1f;
+            Time.timeScale = SettingCanvas.activeSelf ? 0f : 1f;
         }
 
     }
