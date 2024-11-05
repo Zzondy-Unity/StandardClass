@@ -46,7 +46,7 @@
 <li>2.NPC 기능의 구조와 핵심 로직을 분석해보세요.</li>
   <li>1. State패턴을 활용</li>
         <li>- SetState함수를 이용하여 상태를 변경하는것으로 행동로직을 변경</li>
-       <li> ```C#
+       ```C#
               public void SetState(AIState state)
     {
         aiState = state;
@@ -67,7 +67,7 @@
         }
         animator.speed = agent.speed / walkSpeed;
     }
-    ```</li>
+    ```
   <li>- 각 상태에 따라 어떤 함수가 Update문을 돌지 결정</li>
         </ul>
     </div>
