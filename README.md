@@ -46,32 +46,28 @@
 <li>2.NPC 기능의 구조와 핵심 로직을 분석해보세요.</li>
   <li>1. State패턴을 활용</li>
         <li>- SetState함수를 이용하여 상태를 변경하는것으로 행동로직을 변경</li>
-        <li>```C#</li>
-              <li>public void SetState(AIState state)</li>
-    <li>{</li>
-        <li>aiState = state;</li>
-<li></li>
-        <li>switch (aiState)</li>
-        <li>{</li>
-           <li> case AIState.Idle:</li>
-                <li>agent.speed = walkSpeed;</li>
-             <li>   agent.isStopped = true;</li>
-            <li>    break;</li>
-<li></li>
-         <li>   case AIState.Wandering:</li>
-           <li>     agent.speed = walkSpeed;</li>
-           <li>     agent.isStopped = false;</li>
-           <li>     break;</li>
-<li></li>
-          <li>  case AIState.Attacking:</li>
-         <li>       agent.speed = runSpeed;</li>
-           <li>     agent.isStopped = false;</li>
-            <li>    break;</li>
-       <li> }</li>
-<li></li>
-      <li>  animator.speed = agent.speed / walkSpeed;</li>
- <li>   }</li>
-   <li> ```</li>
+        ```C#
+              public void SetState(AIState state)
+    {
+        aiState = state;
+        switch (aiState)
+        {
+            case AIState.Idle:
+                agent.speed = walkSpeed;
+                agent.isStopped = true;
+                break;
+            case AIState.Wandering:
+                agent.speed = walkSpeed;
+                agent.isStopped = false;
+                break;
+            case AIState.Attacking:
+                agent.speed = runSpeed;
+                agent.isStopped = false;
+                break;
+        }
+        animator.speed = agent.speed / walkSpeed;
+    }
+    ```
   <li>- 각 상태에 따라 어떤 함수가 Update문을 돌지 결정</li>
         </ul>
     </div>
