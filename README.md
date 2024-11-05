@@ -15,6 +15,7 @@
     <div markdown="1">
       <ul>
 <li>1. Equipment와 EquipTool의 기능의 구조와 핵심 로직을 분석해보세요.</li>
+        <ul>
   <li>1. Equipment : 플레이어의 장착하는 행위를 나타냄.</li>
      <li>- ItemData를 받아와서 장착프리팹을 생성 혹은 파괴하는 장착행위</li>
   <li>2. EquipTool : Equip을 상속받아서 장착된 장비를 관리하는 클래스.</li>
@@ -22,10 +23,13 @@
      <li>- 플레이어가 공격버튼을 누르면 장착된 EquipTool의 공격이 생기고 해당 클래스의 OnHit함수가 애니메이션중 이벤트로 나타난다.</li>
      <li>- 자원채취용은 해당 자원클래스를, 전투용은 IDamagable을 TryGetComponent한다.</li>
      <li>- 만약 다른 종류의 장비를 만들고자 할 시 Equip을 상속받아 다른 것들을 만들면 된다.</li>
+        </ul>
 <li>2. Resource 기능의 구조와 핵심 로직을 분석해보세요.</li>
+        <ul>
   <li>- 자원을 관리하는 클래스.</li>
   <li>- 줘야할 아이템의 정보를 가지고있다.</li>
   <li>- Gather라는 함수를 통해 아이템을 타격위치에서 생성한다.</li>
+        </ul>
         </ul>
     </div>
 </details>
