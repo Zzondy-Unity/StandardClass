@@ -6,10 +6,18 @@ using Random = UnityEngine.Random;
 public class Pet : Entity
 {
     //플레이어가 일정거리 이상 넘어가면 플레이어를 쫒아간다.
+    private bool isFollowing = false;
+
+    private void Start()
+    {
+        SetState(AIState.Wandering);
+    }
 
     protected override void Update()
     {
-        base.Update();
+        playerDistance = Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position);
+
+        animator.SetBool("Moving", aiState != AIState.Idle);
 
         switch (aiState)
         {
@@ -25,7 +33,8 @@ public class Pet : Entity
 
     protected override void PassiveUpdate()
     {
-        if (aiState == AIState.Wandering && agent.remainingDistance < 0.1f)
+        if (aiState != AIState.Wandering) return;
+        else if (aiState == AIState.Wandering && agent.remainingDistance < 0.1f)
         {
             SetState(AIState.Idle);
             Invoke("WanderToNewLocation", Random.Range(minWanderWaitTime, maxWanderWaitTime));
@@ -40,13 +49,38 @@ public class Pet : Entity
 
     private void FollowingUpdate()
     {
-        Vector3 playerPos = CharacterManager.Instance.Player.transform.position;
+        if(aiState != AIState.Following) return;
+        else if(aiState == AIState.Following && agent.remainingDistance < 0.1f)
+        {
+            SetState(AIState.Idle);
+            Invoke("WanderToNewLocation", Random.Range(minWanderWaitTime, maxWanderWaitTime));
+            isFollowing = false;
+            return;
+        }
 
-        //플레이어에게 다가가서 Wander 혹은 Idle한다.
-        
-        //플레이어에게 다가갈 수 없으면 순간이동한다.
+        if (!isFollowing)
+        {
+            Vector3 playerPos = CharacterManager.Instance.Player.transform.position;
+            //플레이어에게 다가가서 Wander 혹은 Idle한다.
+            NavMeshPath path = new NavMeshPath();
 
-        agent.SetDestination(playerPos + (Random.onUnitSphere * Random.Range(minWanderDistance, maxWanderDistance)));
+            if (agent.CalculatePath(playerPos, path))
+            {
+                agent.SetDestination(playerPos);
+                isFollowing = true;
+            }
+            //플레이어에게 다가갈 수 없으면 순간이동한다.
+            else
+            {
+                agent.transform.position = playerPos + (Random.onUnitSphere * minWanderDistance);
+                SetState(AIState.Idle);
+                Invoke("WanderToNewLocation", Random.Range(minWanderWaitTime, maxWanderWaitTime));
+                isFollowing = false;
+                return;
+            }
+
+
+        }
     }
 
     protected override Vector3 GetWanderLocation()

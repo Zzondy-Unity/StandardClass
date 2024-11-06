@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Burger
+  m_Controller: {fileID: 9100000, guid: 63241976d303fe343be7758f38983753, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 4033287618177238278, guid: 1e0dfdbe57c95664481b506ea14982ba, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 877217ef1f08d1e4ab935fab160c6072, type: 2}
+  - m_OriginalClip: {fileID: -8417493674830745442, guid: 1ab61e70786ce27449cbb57c2fe646ca, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: e9f1048eee1e1494284a5b3b99f6a98f, type: 2}

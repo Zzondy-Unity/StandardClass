@@ -24,7 +24,9 @@ public class NPC : Entity
 
     protected override void Update()
     {
-        base.Update();
+        playerDistance = Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position);
+
+        animator.SetBool("Moving", aiState != AIState.Idle);
 
         switch (aiState)
         {

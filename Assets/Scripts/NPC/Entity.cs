@@ -45,13 +45,11 @@ public abstract class Entity : MonoBehaviour, IDamagable
 
     protected virtual void Update()
     {
-        playerDistance = Vector3.Distance(transform.position, CharacterManager.Instance.Player.transform.position);
-
-        animator.SetBool("Moving", aiState != AIState.Idle);
     }
 
     public void SetState(AIState state)
     {
+        Debug.Log($"{transform.name}이 {state.ToString()}으로 상태를 변경하였습니다.");
         aiState = state;
 
         switch (aiState)
@@ -72,7 +70,7 @@ public abstract class Entity : MonoBehaviour, IDamagable
                 break;
             case AIState.Following:
                 agent.speed = runSpeed;
-                agent.isStopped = true;
+                agent.isStopped = false;
                 break;
         }
 
