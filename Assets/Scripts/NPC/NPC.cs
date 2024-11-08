@@ -8,7 +8,7 @@ public class NPC : Entity
     [Header("Combat")]
     public int damage;
     public float attackRate;
-    private float lastAttackTime;
+    public float lastAttackTime;
     public float attackDistance;
 
 
@@ -40,7 +40,7 @@ public class NPC : Entity
         }
     }
 
-    private void AttackingUpdate()
+    protected virtual void AttackingUpdate()
     {
         if(playerDistance < attackDistance && IsPlayerInFOV())
         {
