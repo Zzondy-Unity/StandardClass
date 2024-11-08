@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class NPC : Entity
     public float attackRate;
     public float lastAttackTime;
     public float attackDistance;
+    public AudioSource audioSource;
+    public AudioClip audio;
 
 
     protected override void Awake()
@@ -19,6 +22,7 @@ public class NPC : Entity
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         SetState(AIState.Wandering);
     }
 
@@ -78,5 +82,10 @@ public class NPC : Entity
                 SetState(AIState.Wandering);
             }
         }
+    }
+
+    public void OnHit()
+    {
+        audioSource.PlayOneShot(audio);
     }
 }
