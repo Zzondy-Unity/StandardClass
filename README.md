@@ -76,3 +76,24 @@
         </ul>
     </div>
 </details>
+<details>
+  <summary>## Q3 요구사항</summary>
+    <div markdown="1">
+      <ul>
+<li>1. 보간에 대해 학습하고 선형보간(Lerp)과 구면선형보간(Slerp)에 대해 학습해보세요.</li>
+  <li>1. Vector3 Lerp(Vector3 a, Vector3 b, float t)</li>
+     <li>- a + (b - a)*t</li>
+     <li>-  반환값 : a와 b를 직선으로 이었을 때 t만큼 보간된 값을 반환합니다.</li>
+  <li>2. 구면선형보간(Slerp)</li>
+     <li>- Vector3 Vector3.Slerp(Vector3 a, Vector3 b, float t)</li>
+     <li>- 선형보간이 수 a, b사이의 보간이라면 구면선형보간은 벡터의 보간값입니다.</li>
+     <li>- 벡터와 벡터를 연결하는 원이 있을 때 그 원들의 보간값(t)만큼 반환합니다.</li>
+<li>2.근사값(Mathf.Approximately)을 사용하는 이유에 대해 학습해보세요.</li>
+  <li>1. bool Mathf.Approximately(float a, float b)</li>
+     <li>- Compares two floating point values and returns true if they are similar</li>
+     <li>- 두 float값을 비교해서 비슷하면 true를 반환합니다.</li>
+     <li>- float값은 정확히 동일 할 수 없습니다. 이때문에 값은 값일 때라는 조건을 이로 대체합니다.</li>
+  <li>- 각 상태에 따라 어떤 함수가 Update문을 돌지 결정</li>
+        </ul>
+    </div>
+</details>
