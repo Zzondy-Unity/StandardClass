@@ -16,18 +16,18 @@ public class EquipTool : Equip
     public bool doesDealDamage;
     public int damage;
 
-    [Header("Wand")]
-    public bool doseMagic;
-    public float useMana;
 
     private Animator animator;
     private Camera cam;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         cam = Camera.main;
     }
+
+
 
     public override void OnAttackInput()
     {
@@ -36,15 +36,12 @@ public class EquipTool : Equip
             if (CharacterManager.Instance.Player.condition.UseStamina(useStamina))
             {
                 attacking = true;
-                if(doseMagic)
-                {
-                    CharacterManager.Instance.Player.skill.UseQSkill();
-                }
                 animator.SetTrigger("Attack");
                 Invoke("OnCanAttack", attackRate);
             }
         }
     }
+
 
     private void OnCanAttack()
     {

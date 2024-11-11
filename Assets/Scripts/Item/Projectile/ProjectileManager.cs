@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public enum ProjectileType
+{
+    Straight,
+    Parabola,
+    Circle
+}
+
+public interface IProjectile
+{
+    public void Fire();
+    public ProjectileType projectileType { get; }
+}
+
+public class ProjectileManager : MonoBehaviour
+{
+
+}
