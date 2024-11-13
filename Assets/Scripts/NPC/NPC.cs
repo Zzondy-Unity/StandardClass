@@ -12,7 +12,7 @@ public class NPC : Entity
     public float lastAttackTime;
     public float attackDistance;
     public AudioSource audioSource;
-    public AudioClip audio;
+    public AudioClip audioClip;
 
 
     protected override void Awake()
@@ -65,7 +65,7 @@ public class NPC : Entity
                 NavMeshPath path = new NavMeshPath();
                 if(agent.CalculatePath(CharacterManager.Instance.Player.transform.position, path))
                 {
-                    //path¿¡ ´ëÇÑ Á¤º¸µé °¡Áö°í Àå³­Ä¥ ¼ö ÀÖ´Ù.
+                    //pathì— ëŒ€í•œ ì •ë³´ë“¤ ê°€ì§€ê³  ì¥ë‚œì¹  ìˆ˜ ìˆë‹¤.
                     agent.SetDestination(CharacterManager.Instance.Player.transform.position);
                 }
                 else
@@ -86,6 +86,6 @@ public class NPC : Entity
 
     public void OnHit()
     {
-        audioSource.PlayOneShot(audio);
+        audioSource.PlayOneShot(audioClip);
     }
 }

@@ -23,7 +23,7 @@ public class Equipment : MonoBehaviour
         curEquip = Instantiate(data.equipPrefab, equipParent).GetComponent<Equip>();
         if(curEquip is EquipRange equipRange)
         {
-            //여기서 바꿔줘야하나? 그럼 뭘로? switch case? 그걸 적게하려고하는게 전략패턴 아닌가?
+            
         }
     }
 
