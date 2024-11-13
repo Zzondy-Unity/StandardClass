@@ -39,7 +39,11 @@ public class EquipRange : Equip
             {
                 attacking = true;
 
-                projectile?.Fire();
+                if(projectile != null)
+                {
+                    GameObject obj = Instantiate(projectile.prefab, ProjectilePosition.position, Quaternion.identity);
+                    obj.GetComponent<IProjectile>().Fire();
+                }
 
                 animator.SetTrigger("Attack");
                 Invoke("OnCanAttack", attackRate);

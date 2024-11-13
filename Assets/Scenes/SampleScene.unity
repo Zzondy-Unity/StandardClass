@@ -1496,7 +1496,7 @@ MonoBehaviour:
   lastAttackTime: 0
   attackDistance: 20
   audioSource: {fileID: 0}
-  audio: {fileID: 0}
+  audioClip: {fileID: 0}
   projectile: {fileID: 318936059327069713, guid: 98d58a9528b6e7d4d9b089ec0887dcb7, type: 3}
   ProjectilePosition: {fileID: 1111805521}
 --- !u!195 &437476484
@@ -4529,7 +4529,7 @@ MonoBehaviour:
   lastAttackTime: 0
   attackDistance: 2
   audioSource: {fileID: 0}
-  audio: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  audioClip: {fileID: 0}
 --- !u!82 &1688261854
 AudioSource:
   m_ObjectHideFlags: 0

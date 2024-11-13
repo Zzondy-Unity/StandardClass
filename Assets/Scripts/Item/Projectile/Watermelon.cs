@@ -10,23 +10,26 @@ public class Watermelon : MonoBehaviour, IProjectile, IInteractable
     private float elapsedTime = 0f;
     private Vector3 startPos;
     private Vector3 ThrowDir;
+    public int damage = 10;
 
     private bool isThrowing = false;
+
     Camera cam => Camera.main;
 
     public ProjectileType projectileType => ProjectileType.Parabola;
 
     public void Fire()
     {
+        isThrowing = true;
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0));
-        ThrowDir = ray.direction;
+        ThrowDir = ray.direction.normalized;
         startPos = transform.position;
         elapsedTime = 0f;
-        isThrowing = true;
     }
 
     private void Update()
     {
+        if (!isThrowing) return;
         elapsedTime += Time.deltaTime;
 
         Vector3 currentPosition = CalculateParabolicPosition(startPos, ThrowDir, ThrowPower, elapsedTime);
@@ -35,6 +38,7 @@ public class Watermelon : MonoBehaviour, IProjectile, IInteractable
         if(currentPosition.y <= 0f)
         {
             isThrowing = false ;
+            Destroy(gameObject);
         }
     }
 
@@ -52,14 +56,18 @@ public class Watermelon : MonoBehaviour, IProjectile, IInteractable
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
-
-            Destroy(gameObject);
+        {
+            if(other.TryGetComponent<IDamagable>(out IDamagable damagable))
+            {
+                damagable.TakePhysicalDamage(damage);
+            }
+        }
     }
 
 
     public string GetInteractPrompt()
     {
-        return string.Empty;
+        return "waterMelon";
     }
 
     public void OnInteract()
@@ -69,5 +77,4 @@ public class Watermelon : MonoBehaviour, IProjectile, IInteractable
             equipRange.SetProjectile(this);
         }
     }
-
 }

@@ -4,7 +4,7 @@ public class Arrow : MonoBehaviour, IProjectile, IInteractable
 {
     [field: SerializeField] public GameObject prefab {  get; private set; }
     public float speed = 10f;
-    private Vector3 Target;
+    private Vector3 dir;
 
     Camera cam => Camera.main;
 
@@ -17,15 +17,22 @@ public class Arrow : MonoBehaviour, IProjectile, IInteractable
 
         if(Physics.Raycast(ray, out hit))
         {
-            Target = hit.point;
+            dir = (hit.point - transform.position).normalized;
+            transform.up = dir;
         }
-
-        transform.rotation = Quaternion.Euler(90, 0, 0);
+        else
+        {
+            Destroy(gameObject);
+            Debug.Log("제대로된 발사가 아니라서 사라짐");
+        }
     }
 
     private void Update()
     {
-        transform.Translate(Target * Time.deltaTime * speed);
+        if(dir != Vector3.zero)
+        {
+            transform.position += dir * speed * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,7 +43,7 @@ public class Arrow : MonoBehaviour, IProjectile, IInteractable
 
     public string GetInteractPrompt()
     {
-        return string.Empty;
+        return "Arrow";
     }
 
     public void OnInteract()

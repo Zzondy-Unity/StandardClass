@@ -93,7 +93,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5435169442416203956}
-  - component: {fileID: 1835375630286920429}
   - component: {fileID: 9200101794233972655}
   - component: {fileID: -3581469924881400005}
   m_Layer: 9
@@ -120,24 +119,6 @@ Transform:
   - {fileID: 6116881415128393421}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1835375630286920429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3904979777514740002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a15e21f868762f4ebbfb2656e18b005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRate: 0.8
-  attackDistance: 1
-  useStamina: 15
-  doesGatherResources: 0
-  doesDealDamage: 1
-  damage: 1
 --- !u!95 &9200101794233972655
 Animator:
   serializedVersion: 5
@@ -148,7 +129,7 @@ Animator:
   m_GameObject: {fileID: 3904979777514740002}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c075c372c85d93746859485ce28c798a, type: 2}
+  m_Controller: {fileID: 9100000, guid: ad401804a8a37ef478d05e8b9de5d5e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -173,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRate: 0.8
   attackDistance: 1
-  useStamina: 15
+  useStamina: 0
   useMana: 10
   ProjectilePosition: {fileID: 6116881415128393421}
 --- !u!1 &8269262774384381028

@@ -49,7 +49,6 @@ public abstract class Entity : MonoBehaviour, IDamagable
 
     public void SetState(AIState state)
     {
-        Debug.Log($"{transform.name}이 {state.ToString()}으로 상태를 변경하였습니다.");
         aiState = state;
 
         switch (aiState)

@@ -36,17 +36,37 @@ public class Plate : MonoBehaviour, IProjectile, IInteractable
 
             angle += angleStep;
         }
+
+        DestroySelf();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Player")) return;
 
-            Destroy(gameObject);
+        if (other.CompareTag("Enemy"))
+        {
+            if (other.TryGetComponent<IDamagable>(out IDamagable damagable))
+            {
+                Debug.Log("데미지를 입힘");
+                DestroySelf();
+            }
+        }
+        else
+        {
+            DestroySelf();
+        }
     }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
+
+
     public string GetInteractPrompt()
     {
-        return string.Empty;
+        return "Plate";
     }
 
     public void OnInteract()

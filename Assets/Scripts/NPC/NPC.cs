@@ -86,6 +86,7 @@ public class NPC : Entity
 
     public void OnHit()
     {
+        if(audioClip != null)
         audioSource.PlayOneShot(audioClip);
     }
 }
