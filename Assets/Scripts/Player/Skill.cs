@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    public SkillData skilldata;
+
+
+
     [SerializeField] private Transform FirePos;
     public FireBall FireBall;
 
